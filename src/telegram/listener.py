@@ -148,11 +148,10 @@ def simulate_trade_execution(parsed):
     }
     
     print(f"\nAllocated Today: {trade_state['allocated_margin_today']} / {MAX_DAILY_MARGIN} USDT")
-    
 async def main():
     print("Listening... send any message in your VIP group/channel now.")
-    await client.start()
+    phone = os.getenv("PHONE")
+    await client.start(phone=phone)
     await client.run_until_disconnected()
-
 if __name__ == "__main__":
     asyncio.run(main())
